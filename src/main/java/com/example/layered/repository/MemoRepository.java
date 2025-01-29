@@ -14,3 +14,4 @@ public interface MemoRepository {
 
     void deleteMemo(Long id);
 }
+//끝

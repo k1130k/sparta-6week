@@ -28,15 +28,14 @@ public class MemoServiceImpl implements MemoService {
     }
 
     @Override
-    public MemoResponseDto saveMemo(MemoRequestDto requestDto) {
+    public MemoResponseDto saveMemo(MemoRequestDto dto) {
 
         // 요청받은 데이터로 Memo 객체 생성 ID 없음
-        Memo memo = new Memo(requestDto.getTitle(), requestDto.getContents());
+        Memo memo = new Memo(dto.getTitle(), dto.getContents());
 
         // Inmemory DB에 Memo 저장
-        Memo savedMemo = memoRepository.saveMemo(memo);
 
-        return new MemoResponseDto(savedMemo);
+        return memoRepository.saveMemo(memo);
     }
 
     @Override
@@ -111,7 +110,7 @@ public class MemoServiceImpl implements MemoService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "Does not exist id = " + id);
         }
 
-        memoRepository.deleteMemo(id);
+        memoRepository.deleteMemo(id); 
 
     }
 

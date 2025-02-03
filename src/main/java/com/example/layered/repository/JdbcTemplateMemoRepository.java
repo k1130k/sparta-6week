@@ -3,6 +3,7 @@ package com.example.layered.repository;
 import com.example.layered.dto.MemoResponseDto;
 import com.example.layered.entrriry.Memo;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
@@ -19,6 +20,8 @@ public class JdbcTemplateMemoRepository implements  MemoRepository{
 
     @Override
     public MemoResponseDto saveMemo(Memo memo) {
+
+        SimpleJdbcInsert jdbcInsert = new SimpleJdbcInsert(jdbcTemplate);
         return null;
     }
 
